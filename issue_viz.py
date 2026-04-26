@@ -274,7 +274,7 @@ class ChartBuilder:
                 camera=dict(eye=dict(x=1.8, y=-1.8, z=1.2)),
                 aspectmode="manual", aspectratio=dict(x=1.6, y=1.2, z=0.8),
             ),
-            margin=dict(l=0, r=0, t=40, b=0),
+            margin=dict(l=0, r=0, t=32, b=2),
             paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
             title=dict(text=event_label, font=dict(size=14)),
             showlegend=False, height=580, uirevision="static",
@@ -392,10 +392,19 @@ class IssueDashboardApp:
                 )),
                 dbc.Row(dbc.Col(controls, width=12)),
                 dbc.Row(dbc.Col(
-                    dash.dcc.Graph(id="chart-3d", config={"displayModeBar": True, "scrollZoom": True}, style={"height": "550px"}),
+                    dash.dcc.Graph(id="chart-3d", config={"displayModeBar": True, "scrollZoom": True}, style={"height": "590px", "marginBottom": "0px"}),
                     width=12,
                 )),
-                dbc.Row(dbc.Col(dash.html.Div(id="stats-bar", className="text-muted small text-center mb-2"), width=12)),
+                dbc.Row(
+                    dbc.Col(
+                        dash.html.Div(
+                            id="stats-bar",
+                            className="text-muted small text-center",
+                            style={"marginTop": "-2px", "paddingTop": "0px"}
+                        ),
+                        width=12
+                    )
+                )
             ])
         ])
 
